@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "glplot"
+version = "0.1.0"
+description = "High-performance OpenGL plotting library, similar to Matplotlib"
+authors = [
+    {name = "Dimitry", email = "dimitry@example.com"},
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "glfw",
+    "PyOpenGL",
+    "imgui",
+    "imgui[glfw]"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-mock"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["glplot"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=glplot --cov-report=term-missing"
+testpaths = ["tests"]
