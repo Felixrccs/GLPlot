@@ -1143,11 +1143,11 @@ class GPULinePlot:
             transparent=transparent
         )
 
-    def to_matplotlib(self, ax=None, **kwargs):
+    def to_matplotlib(self, ax=None, mpl_kwargs={}, **kwargs):
         """Level 2 API: Render and embed directly into Matplotlib."""
         from .utils.mpl_bridge import snapshot_to_matplotlib
         snap = self.capture_snapshot(**kwargs)
-        return snapshot_to_matplotlib(snap, ax=ax)
+        return snapshot_to_matplotlib(snap, ax=ax, **mpl_kwargs)
 
     def set_matplotlib_transfer_target(self, ax=None, callback=None):
         """Level 3 API Setup: Redirect 'M' key transfers."""
